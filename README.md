@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# test-next-16
 
-## Getting Started
+Đây là **basic template (template cơ bản) để xây dựng nhiều dự án sử dụng Next.js**. Dự án cung cấp bộ công nghệ và cấu trúc ban đầu có thể tái sử dụng, tùy chỉnh và mở rộng theo yêu cầu của từng ứng dụng.
 
-First, run the development server:
+## Công nghệ
+
+Các phiên bản dưới đây được khai báo trong `package.json`:
+
+| Công nghệ | Phiên bản | Vai trò |
+| --- | --- | --- |
+| Next.js | 16.4.2 | Framework React, sử dụng App Router |
+| React / React DOM | 19.3.0 | Xây dựng giao diện |
+| TypeScript | 5.x | Kiểm tra kiểu dữ liệu |
+| Ant Design / Ant Design Icons | 6.x | Bộ component giao diện và icon |
+| TanStack React Query | 5.x | Quản lý dữ liệu từ server, cache và đồng bộ dữ liệu |
+| Redux Toolkit / React Redux | 2.x / 9.x | Quản lý state dùng chung phía client |
+| Day.js | 1.x | Xử lý và định dạng ngày giờ |
+| Sass (SCSS / CSS Modules) | 1.x | Hỗ trợ viết style theo component |
+| Tailwind CSS | 4.x | Utility CSS, tích hợp qua Turbopack |
+| ESLint / eslint-config-next | 9.x / 16.4.2 | Kiểm tra quy tắc mã nguồn |
+| pnpm | 10.32.1 | Quản lý package và chạy các script |
+
+React Query và Redux Toolkit đã có trong dependencies; việc cấu hình provider, store và tích hợp API cần được hoàn thiện theo từng dự án. Axios được định hướng sử dụng trong `AGENTS.md`, nhưng hiện chưa có trong dependencies.
+
+## Chạy dự án
+
+Cài đặt Node.js tương thích với Next.js 16 và pnpm theo phiên bản khai báo trong `package.json`, sau đó chạy:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mở [http://localhost:3000](http://localhost:3000) để xem ứng dụng.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Các lệnh khác:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build  # Build ứng dụng
+pnpm start  # Chạy bản production sau khi build
+pnpm lint   # Kiểm tra mã nguồn bằng ESLint
+```
 
-## Learn More
+## Cấu trúc cơ bản
 
-To learn more about Next.js, take a look at the following resources:
+```text
+app/                # App Router, layout, các trang và style toàn cục
+common/components/  # Component dùng chung, bao gồm sidebar
+utils/              # Các tiện ích dùng chung như xử lý ngày giờ, kiểm tra kiểu
+public/             # Tài nguyên tĩnh
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Sử dụng làm template
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Sao chép template để khởi tạo dự án Next.js mới.
+- Cập nhật tên package, metadata, giao diện và cấu hình theo dự án.
+- Bổ sung các feature, API service và cấu hình quản lý state theo nhu cầu.
+- Tuân thủ quy ước trong [AGENTS.md](./AGENTS.md) khi phát triển và mở rộng.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Template hiện là nền tảng khởi đầu; các tính năng nghiệp vụ, xác thực và phân quyền cần được triển khai theo yêu cầu của từng dự án.
